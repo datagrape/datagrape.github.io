@@ -326,10 +326,13 @@ function init(){
   const el = document.getElementById('repo-data');
   if(!el){
     document.getElementById('projects-grid').innerHTML=`
-      <div class="error-box" style="grid-column:1/-1">
-        <p>⚠ No repo data found.</p>
-        <p style="margin-top:0.5rem;font-size:12px">Run the GitHub Actions workflow to build the portfolio with your private repos.</p>
+      <div class="error-box" style="grid-column:1/-1;padding:2.5rem">
+        <p style="font-size:16px;margin-bottom:1rem">⚙️ Portfolio not built yet</p>
+        <p>The GitHub Actions workflow needs to run first — it fetches all your repos (public + private) and bakes the data into this page.</p>
+        <p style="margin-top:1rem;font-size:12px"><b>Fix:</b> Go to your repo → Actions tab → Deploy Portfolio → Run workflow</p>
       </div>`;
+    ["stat-repos","stat-public","stat-private","stat-stars","stat-langs"].forEach(id=>{ const e=document.getElementById(id); if(e) e.textContent="—"; });
+    document.getElementById("last-updated").textContent="workflow not yet run";
     return;
   }
 

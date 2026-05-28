@@ -1,0 +1,59 @@
+name: Deploy Portfolio
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 0 * * 0"   # Auto-refresh every Sunday midnight
+  workflow_dispatch:        # Manual trigger from GitHub UI
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Fetch repos & inject data
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: node scripts/fetch-repos.js
+
+      - name: Verify injection worked
+        run: |
+          echo "=== Checking index.html for injected data ==="
+          grep -c "repo-data" index.html && echo "✅ Data injected successfully" || echo "❌ Injection failed"
+          echo "=== File size ==="
+          wc -c index.html
+          echo "=== repo-data.json stats ==="
+          node -e "const d=require('./repo-data.json'); console.log('Total repos:', d.stats.total, '| Public:', d.stats.public, '| Private:', d.stats.private);"
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
