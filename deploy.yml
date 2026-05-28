@@ -4,8 +4,8 @@ on:
   push:
     branches: [main]
   schedule:
-    - cron: "0 0 * * 0"  # Auto-refresh every Sunday midnight
-  workflow_dispatch:       # Manual trigger from GitHub UI
+    - cron: "0 0 * * 0"   # Auto-refresh every Sunday midnight
+  workflow_dispatch:        # Manual trigger from GitHub UI
 
 permissions:
   contents: read
@@ -17,14 +17,25 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  build-and-deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Fetch repos & inject data
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: node scripts/fetch-repos.js
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
