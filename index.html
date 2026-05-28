@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>datagrape — Resume & Portfolio</title>
+  <title>Ashish Sharma — Resume & Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -22,7 +22,7 @@
       --accent-light: #e8f0f8;
       --tag: #f0ede8;
       --tag-border: #d8d2ca;
-      --sidebar-w: 260px;
+      --sidebar-w: 270px;
       --green: #2d6a4f;
       --amber: #8b5e00;
     }
@@ -38,94 +38,116 @@
       min-height: 100vh;
     }
 
-    /* PRINT BUTTON */
     .print-bar {
       background: var(--accent);
       color: #fff;
       text-align: center;
-      padding: 8px;
+      padding: 8px 16px;
       font-family: 'IBM Plex Mono', monospace;
       font-size: 11px;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
     }
     .print-bar button {
       background: rgba(255,255,255,0.15);
       color: #fff;
       border: 1px solid rgba(255,255,255,0.3);
       border-radius: 4px;
-      padding: 3px 12px;
+      padding: 3px 14px;
       font-family: 'IBM Plex Mono', monospace;
       font-size: 11px;
       cursor: pointer;
-      margin-left: 12px;
       letter-spacing: 0.06em;
     }
     .print-bar button:hover { background: rgba(255,255,255,0.25); }
 
-    /* PAGE WRAPPER */
     .page {
-      max-width: 1020px;
+      max-width: 1040px;
       margin: 24px auto;
       background: var(--paper);
-      box-shadow: 0 2px 40px rgba(0,0,0,0.12);
+      box-shadow: 0 2px 40px rgba(0,0,0,0.13);
       display: grid;
       grid-template-columns: var(--sidebar-w) 1fr;
-      grid-template-rows: auto 1fr;
       min-height: calc(100vh - 80px);
     }
 
-    /* ── HEADER (full width) ── */
+    /* ── HEADER ── */
     .resume-header {
       grid-column: 1 / -1;
-      padding: 3rem 3rem 2rem;
-      border-bottom: 2px solid var(--ink);
+      padding: 2.5rem 3rem 2rem;
+      border-bottom: 2.5px solid var(--ink);
       display: grid;
       grid-template-columns: auto 1fr auto;
-      gap: 1.5rem;
+      gap: 1.75rem;
       align-items: center;
     }
 
-    .avatar-wrap { position: relative; }
     .avatar {
-      width: 80px; height: 80px; border-radius: 50%;
-      border: 2px solid var(--rule2);
-      display: block;
+      width: 82px; height: 82px; border-radius: 50%;
+      border: 2px solid var(--rule2); display: block;
     }
     .avatar-placeholder {
-      width: 80px; height: 80px; border-radius: 50%;
+      width: 82px; height: 82px; border-radius: 50%;
       background: var(--accent-light);
       border: 2px solid var(--rule2);
       display: flex; align-items: center; justify-content: center;
       font-family: 'Playfair Display', serif;
-      font-size: 28px; color: var(--accent);
+      font-size: 26px; color: var(--accent); font-weight: 600;
     }
 
     .header-name h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.6rem;
+      font-size: 2.5rem;
       font-weight: 600;
       letter-spacing: -0.02em;
       line-height: 1;
       color: var(--ink);
     }
-    .header-name h1 em {
-      font-style: italic;
-      font-weight: 400;
-      color: var(--accent);
+    .header-name h1 em { font-style: italic; font-weight: 400; color: var(--accent); }
+
+    .header-roles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
     }
-    .header-title {
-      font-size: 0.9rem;
-      color: var(--ink2);
-      margin-top: 6px;
-      font-weight: 400;
-      letter-spacing: 0.02em;
+    .role-pill {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      padding: 2px 10px;
+      border-radius: 3px;
+      background: var(--accent);
+      color: #fff;
+      letter-spacing: 0.05em;
     }
+    .status-pill {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      padding: 2px 10px;
+      border-radius: 3px;
+      background: #e6f4ec;
+      color: var(--green);
+      border: 1px solid #b6dcc4;
+      letter-spacing: 0.05em;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .status-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--green);
+      animation: blink 2s infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
 
     .header-meta {
       text-align: right;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 7px;
     }
     .meta-item {
       font-family: 'IBM Plex Mono', monospace;
@@ -149,7 +171,7 @@
       gap: 2rem;
     }
 
-    .sidebar-section h3 {
+    .s-head {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 10px;
       letter-spacing: 0.12em;
@@ -160,21 +182,59 @@
       border-bottom: 1px solid var(--rule);
     }
 
+    /* EDUCATION */
+    .edu-entry { display: flex; flex-direction: column; gap: 3px; }
+    .edu-degree {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+    .edu-school {
+      font-size: 12px;
+      color: var(--ink2);
+    }
+    .edu-year {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: var(--ink3);
+    }
+
+    /* SKILLS */
+    .skill-group { margin-bottom: 0.75rem; }
+    .skill-group-name {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: var(--ink3);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 5px;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+    .skill-tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 3px;
+      background: var(--tag);
+      border: 1px solid var(--tag-border);
+      color: var(--ink2);
+    }
+
     /* STATS */
     .stat-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 0.75rem;
+      gap: 0.6rem;
     }
     .stat-box {
       background: var(--tag);
       border: 1px solid var(--tag-border);
       border-radius: 6px;
-      padding: 0.6rem 0.75rem;
+      padding: 0.55rem 0.7rem;
     }
     .stat-box .num {
       font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 600;
       color: var(--ink);
       line-height: 1;
@@ -188,33 +248,27 @@
       margin-top: 2px;
     }
 
-    /* LANGUAGES */
+    /* LANG CHART */
     .lang-list { display: flex; flex-direction: column; gap: 8px; }
     .lang-row { display: flex; align-items: center; gap: 8px; }
-    .lang-dot-sm { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-    .lang-name { font-size: 13px; color: var(--ink2); flex: 1; }
-    .lang-bar-wrap { width: 60px; height: 3px; background: var(--rule); border-radius: 2px; overflow: hidden; }
+    .lang-dot-sm { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; display: inline-block; }
+    .lang-name { font-size: 12px; color: var(--ink2); flex: 1; }
+    .lang-bar-wrap { width: 56px; height: 3px; background: var(--rule); border-radius: 2px; overflow: hidden; }
     .lang-bar { height: 100%; background: var(--accent); border-radius: 2px; }
 
     /* FILTERS */
-    .filter-list { display: flex; flex-direction: column; gap: 4px; }
+    .filter-list { display: flex; flex-direction: column; gap: 3px; }
     .filter-item {
       display: flex; align-items: center; gap: 8px;
       padding: 5px 8px; border-radius: 4px;
       cursor: pointer; transition: background 0.1s;
-      font-size: 13px; color: var(--ink2);
+      font-size: 12px; color: var(--ink2);
       border: none; background: transparent; width: 100%; text-align: left;
     }
     .filter-item:hover { background: var(--tag); }
     .filter-item.active { background: var(--accent-light); color: var(--accent); font-weight: 500; }
-    .filter-count {
-      margin-left: auto;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 10px;
-      color: var(--ink3);
-    }
+    .filter-count { margin-left: auto; font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--ink3); }
 
-    /* VISIBILITY TOGGLE */
     .vis-group { display: flex; flex-direction: column; gap: 4px; }
     .vis-btn {
       padding: 6px 10px; border-radius: 4px; border: 1px solid var(--rule2);
@@ -225,165 +279,87 @@
     .vis-btn:hover { border-color: var(--accent); color: var(--accent); }
     .vis-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
 
-    /* ── MAIN CONTENT ── */
-    main {
-      grid-column: 2;
-      padding: 2rem 2.5rem;
-    }
+    /* ── MAIN ── */
+    main { grid-column: 2; padding: 2rem 2.5rem; }
 
-    /* BIO */
-    .bio-section {
-      padding-bottom: 1.5rem;
-      margin-bottom: 1.5rem;
+    /* ABOUT */
+    .about-section {
+      padding-bottom: 1.75rem;
+      margin-bottom: 1.75rem;
       border-bottom: 1px solid var(--rule);
     }
-    .bio-text {
-      font-size: 0.95rem;
+    .about-text {
+      font-size: 0.925rem;
       color: var(--ink2);
-      line-height: 1.75;
-      max-width: 560px;
+      line-height: 1.8;
+      max-width: 580px;
     }
+    .about-text strong { color: var(--ink); font-weight: 500; }
 
-    /* SECTION HEADER */
+    /* SECTION LABEL */
     .section-label {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 10px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--ink3);
-      margin-bottom: 1.25rem;
+      margin-bottom: 1rem;
       display: flex;
       align-items: center;
       gap: 12px;
     }
-    .section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--rule);
-    }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
 
     /* PROJECT LIST */
-    .project-list { display: flex; flex-direction: column; gap: 0; }
-
     .project-entry {
       display: grid;
       grid-template-columns: 1fr auto;
       gap: 1rem;
-      padding: 1.1rem 0;
+      padding: 1rem;
       border-bottom: 1px solid var(--rule);
       text-decoration: none;
       color: inherit;
       transition: background 0.15s;
       margin: 0 -1rem;
-      padding-left: 1rem;
-      padding-right: 1rem;
       border-radius: 4px;
     }
     .project-entry:hover { background: var(--tag); }
     .project-entry:hover .proj-name { color: var(--accent); }
 
-    .proj-left { min-width: 0; }
-
-    .proj-top {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 4px;
-    }
+    .proj-top { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; flex-wrap: wrap; }
     .proj-name {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--ink);
+      font-size: 13.5px; font-weight: 500; color: var(--ink);
       transition: color 0.15s;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
-    .proj-private-badge {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 9px;
-      padding: 1px 6px;
-      border-radius: 3px;
-      background: #fff8e6;
-      border: 1px solid #e8d080;
-      color: var(--amber);
-      letter-spacing: 0.04em;
-      flex-shrink: 0;
+    .proj-badge {
+      font-family: 'IBM Plex Mono', monospace; font-size: 9px;
+      padding: 1px 6px; border-radius: 3px; flex-shrink: 0;
     }
-    .proj-fork-badge {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 9px;
-      padding: 1px 6px;
-      border-radius: 3px;
-      background: var(--tag);
-      border: 1px solid var(--tag-border);
-      color: var(--ink3);
-      flex-shrink: 0;
-    }
+    .badge-private { background: #fff8e6; border: 1px solid #e8d080; color: var(--amber); }
+    .badge-fork    { background: var(--tag); border: 1px solid var(--tag-border); color: var(--ink3); }
 
-    .proj-desc {
-      font-size: 13px;
-      color: var(--ink2);
-      line-height: 1.5;
-    }
-
-    .proj-topics {
-      display: flex;
-      gap: 4px;
-      flex-wrap: wrap;
-      margin-top: 6px;
-    }
+    .proj-desc { font-size: 12.5px; color: var(--ink2); line-height: 1.55; }
+    .proj-topics { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 5px; }
     .topic-tag {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 10px;
-      padding: 1px 7px;
-      border-radius: 3px;
-      background: var(--accent-light);
-      color: var(--accent);
+      font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+      padding: 1px 7px; border-radius: 3px;
+      background: var(--accent-light); color: var(--accent);
       border: 1px solid rgba(26,58,92,0.15);
     }
 
     .proj-right {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 6px;
-      flex-shrink: 0;
-      min-width: 80px;
+      display: flex; flex-direction: column;
+      align-items: flex-end; gap: 5px; flex-shrink: 0; min-width: 80px;
     }
-    .proj-lang {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
-      color: var(--ink3);
-    }
-    .proj-stats {
-      display: flex;
-      gap: 10px;
-    }
-    .proj-stat {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
-      color: var(--ink3);
-    }
-    .proj-date {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 10px;
-      color: var(--ink3);
-    }
+    .proj-lang { display: flex; align-items: center; gap: 5px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--ink3); }
+    .proj-stats { display: flex; gap: 8px; }
+    .proj-stat { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--ink3); }
+    .proj-date { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--ink3); }
 
-    /* EMPTY / ERROR */
     .empty-state {
-      padding: 3rem;
-      text-align: center;
-      color: var(--ink3);
-      font-size: 13px;
-      border: 1px dashed var(--rule2);
-      border-radius: 6px;
+      padding: 3rem; text-align: center; color: var(--ink3);
+      font-size: 13px; border: 1px dashed var(--rule2); border-radius: 6px;
     }
 
     /* FOOTER */
@@ -391,19 +367,12 @@
       grid-column: 1 / -1;
       border-top: 1px solid var(--rule);
       padding: 1rem 3rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      display: flex; justify-content: space-between; align-items: center;
     }
-    .footer-text {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 10px;
-      color: var(--ink3);
-      letter-spacing: 0.04em;
-    }
+    .footer-text { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--ink3); letter-spacing: 0.04em; }
     .footer-text a { color: var(--accent); text-decoration: none; }
 
-    /* LANG COLOR DOTS */
+    /* LANG COLORS */
     .lc-JavaScript{background:#f7df1e} .lc-TypeScript{background:#3178c6}
     .lc-Python{background:#3572a5} .lc-Rust{background:#dea584}
     .lc-Go{background:#00add8} .lc-Java{background:#b07219}
@@ -414,55 +383,61 @@
     .lc-Cpp{background:#f34b7d} .lc-PHP{background:#4f5d95}
     .lc-Dart{background:#00b4ab} .lc-default{background:#aaa}
 
-    /* PRINT STYLES */
     @media print {
       body { background: white; }
       .print-bar { display: none; }
       .page { box-shadow: none; margin: 0; max-width: 100%; }
       .project-entry:hover { background: none; }
     }
-
-    @media (max-width: 700px) {
+    @media (max-width: 720px) {
       .page { grid-template-columns: 1fr; }
       .resume-header { grid-template-columns: auto 1fr; }
       .header-meta { display: none; }
       aside { border-right: none; border-bottom: 1px solid var(--rule); }
       main { grid-column: 1; padding: 1.5rem; }
-      footer { grid-column: 1; }
+      footer { grid-column: 1; flex-direction: column; gap: 0.5rem; }
     }
   </style>
 </head>
 <body>
 
 <div class="print-bar">
-  This portfolio is auto-generated from GitHub via GitHub Actions
-  <button onclick="window.print()">⎙ Print / Save PDF</button>
+  Ashish Sharma — Developer Portfolio &amp; Resume
+  <button onclick="window.print()">⎙ Print / Save as PDF</button>
 </div>
 
 <div class="page">
 
   <!-- HEADER -->
   <header class="resume-header">
-    <div class="avatar-wrap">
-      <img class="avatar" id="avatar" src="" alt="avatar" style="display:none" />
-      <div class="avatar-placeholder" id="avatar-placeholder">dg</div>
+    <div>
+      <img class="avatar" id="avatar" src="" alt="Ashish Sharma" style="display:none" />
+      <div class="avatar-placeholder" id="avatar-ph">AS</div>
     </div>
+
     <div class="header-name">
-      <h1>data<em>grape</em></h1>
-      <div class="header-title" id="header-title">Software Developer · Open Source Enthusiast</div>
+      <h1>Ashish <em>Sharma</em></h1>
+      <div class="header-roles" style="margin-top:10px">
+        <span class="status-pill"><span class="status-dot"></span>Actively looking for work</span>
+        <span class="role-pill">Full Stack</span>
+        <span class="role-pill">Data Engineering</span>
+        <span class="role-pill">AI / ML</span>
+        <span class="role-pill">Data Analysis</span>
+      </div>
     </div>
+
     <div class="header-meta">
       <div class="meta-item">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
         <a href="https://github.com/datagrape" target="_blank">github.com/datagrape</a>
       </div>
-      <div class="meta-item" id="followers-meta" style="display:none">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        <span id="followers-text"></span>
+      <div class="meta-item" id="followers-row" style="display:none">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span id="followers-txt"></span>
       </div>
-      <div class="meta-item" id="built-meta">
+      <div class="meta-item">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        <span id="built-text">not yet built</span>
+        <span id="built-txt">—</span>
       </div>
     </div>
   </header>
@@ -470,48 +445,86 @@
   <!-- SIDEBAR -->
   <aside>
 
-    <div class="sidebar-section">
-      <h3>Overview</h3>
-      <div class="stat-grid">
-        <div class="stat-box">
-          <div class="num" id="stat-total">—</div>
-          <div class="lbl">Total</div>
+    <div>
+      <div class="s-head">Education</div>
+      <div class="edu-entry">
+        <div class="edu-degree">B.Tech / B.E.</div>
+        <div class="edu-school">NIMS University</div>
+        <div class="edu-year">Graduated 2012</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="s-head">Skills</div>
+      <div class="skill-group">
+        <div class="skill-group-name">Frontend</div>
+        <div class="skill-tags">
+          <span class="skill-tag">HTML/CSS</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">TypeScript</span>
         </div>
-        <div class="stat-box">
-          <div class="num" id="stat-stars">—</div>
-          <div class="lbl">Stars</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-name">Backend</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">REST APIs</span>
+          <span class="skill-tag">SQL</span>
         </div>
-        <div class="stat-box">
-          <div class="num" id="stat-public">—</div>
-          <div class="lbl">Public</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-name">Data Engineering</div>
+        <div class="skill-tags">
+          <span class="skill-tag">ETL</span>
+          <span class="skill-tag">Pandas</span>
+          <span class="skill-tag">Spark</span>
+          <span class="skill-tag">Airflow</span>
+          <span class="skill-tag">dbt</span>
         </div>
-        <div class="stat-box">
-          <div class="num" id="stat-private">—</div>
-          <div class="lbl">Private</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-name">AI / ML</div>
+        <div class="skill-tags">
+          <span class="skill-tag">scikit-learn</span>
+          <span class="skill-tag">TensorFlow</span>
+          <span class="skill-tag">LLMs</span>
+          <span class="skill-tag">NLP</span>
         </div>
       </div>
     </div>
 
-    <div class="sidebar-section">
-      <h3>Visibility</h3>
+    <div>
+      <div class="s-head">GitHub Stats</div>
+      <div class="stat-grid">
+        <div class="stat-box"><div class="num" id="stat-total">—</div><div class="lbl">Repos</div></div>
+        <div class="stat-box"><div class="num" id="stat-stars">—</div><div class="lbl">Stars</div></div>
+        <div class="stat-box"><div class="num" id="stat-public">—</div><div class="lbl">Public</div></div>
+        <div class="stat-box"><div class="num" id="stat-private">—</div><div class="lbl">Private</div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="s-head">Visibility</div>
       <div class="vis-group">
         <button class="vis-btn active" onclick="setVis('all',this)">All repositories</button>
         <button class="vis-btn" onclick="setVis('public',this)">Public only</button>
-        <button class="vis-btn" onclick="setVis('private',this)">Private only 🔒</button>
+        <button class="vis-btn" onclick="setVis('private',this)">Private 🔒</button>
       </div>
     </div>
 
-    <div class="sidebar-section">
-      <h3>Language</h3>
+    <div>
+      <div class="s-head">Filter by language</div>
       <div class="filter-list" id="lang-filters">
         <button class="filter-item active" data-lang="all" onclick="setLang('all',this)">
-          All languages <span class="filter-count" id="count-all">0</span>
+          All <span class="filter-count" id="count-all">—</span>
         </button>
       </div>
     </div>
 
-    <div class="sidebar-section" id="lang-chart-section" style="display:none">
-      <h3>Breakdown</h3>
+    <div id="lang-chart-wrap" style="display:none">
+      <div class="s-head">Language breakdown</div>
       <div class="lang-list" id="lang-chart"></div>
     </div>
 
@@ -519,25 +532,36 @@
 
   <!-- MAIN -->
   <main>
-    <div class="bio-section">
-      <p class="bio-text" id="bio-text">Software developer focused on building useful tools and open source projects. Explore repositories below — including private work.</p>
+
+    <!-- ABOUT -->
+    <div class="about-section">
+      <div class="section-label">About</div>
+      <p class="about-text">
+        I'm <strong>Ashish Sharma</strong>, a software developer and data engineer with a B.Tech from NIMS University (2012).
+        Over the years I've worked across the full stack — building web interfaces, designing backend systems, and crafting
+        data pipelines that turn raw information into insight. I have a deep interest in <strong>AI and machine learning</strong>,
+        and enjoy applying these tools to real-world problems. I'm currently <strong>actively looking for new opportunities</strong>
+        where I can contribute across engineering and data domains.
+      </p>
     </div>
 
+    <!-- PROJECTS -->
     <div class="section-label" id="section-label">Projects</div>
 
-    <div class="project-list" id="project-list">
+    <div id="project-list">
       <div class="empty-state">
-        <p style="font-size:1.1rem;margin-bottom:0.5rem">⚙️ Portfolio not built yet</p>
-        <p>Push your files and run the GitHub Actions workflow.</p>
-        <p style="margin-top:0.75rem;font-size:12px">Actions → Deploy Portfolio → Run workflow</p>
+        <p style="font-size:1.05rem;margin-bottom:0.5rem">⚙️ Portfolio not built yet</p>
+        <p>Push your files and trigger the GitHub Actions workflow.</p>
+        <p style="margin-top:0.75rem;font-size:11px;font-family:'IBM Plex Mono',monospace">Actions → Deploy Portfolio → Run workflow</p>
       </div>
     </div>
+
   </main>
 
   <!-- FOOTER -->
   <footer>
-    <span class="footer-text">datagrape · <a href="https://github.com/datagrape" target="_blank">github.com/datagrape</a></span>
-    <span class="footer-text">auto-generated via <a href="https://github.com/features/actions" target="_blank">github actions</a> · includes private repos</span>
+    <span class="footer-text">Ashish Sharma · <a href="https://github.com/datagrape" target="_blank">github.com/datagrape</a></span>
+    <span class="footer-text">auto-generated via <a href="https://github.com/features/actions" target="_blank">github actions</a> · public &amp; private repos</span>
   </footer>
 
 </div>
@@ -554,26 +578,26 @@ function timeAgo(d){
   return Math.floor(s/31536000)+'y ago';
 }
 
-let allRepos=[], currentVis='all', currentLang='all';
+let currentVis='all', currentLang='all';
 
 function renderEntry(r){
-  const lang = r.language||'';
-  const desc = r.description || '<span style="color:var(--ink3);font-style:italic">No description</span>';
-  const topics = (r.topics||[]).slice(0,4).map(t=>`<span class="topic-tag">${t}</span>`).join('');
+  const lang=r.language||'';
+  const desc=r.description||'<span style="color:var(--ink3);font-style:italic">No description</span>';
+  const topics=(r.topics||[]).slice(0,5).map(t=>`<span class="topic-tag">${t}</span>`).join('');
   return `
     <a class="project-entry" href="${r.html_url}" target="_blank" rel="noopener"
        data-lang="${lang}" data-vis="${r.private?'private':'public'}">
-      <div class="proj-left">
+      <div>
         <div class="proj-top">
           <span class="proj-name">${r.name}</span>
-          ${r.private?'<span class="proj-private-badge">private</span>':''}
-          ${r.fork?'<span class="proj-fork-badge">fork</span>':''}
+          ${r.private?'<span class="proj-badge badge-private">private</span>':''}
+          ${r.fork?'<span class="proj-badge badge-fork">fork</span>':''}
         </div>
         <div class="proj-desc">${desc}</div>
         ${topics?`<div class="proj-topics">${topics}</div>`:''}
       </div>
       <div class="proj-right">
-        ${lang?`<div class="proj-lang"><span class="lang-dot-sm ${lc(lang)}" style="width:8px;height:8px;border-radius:50%;display:inline-block"></span>${lang}</div>`:''}
+        ${lang?`<div class="proj-lang"><span class="lang-dot-sm ${lc(lang)}"></span>${lang}</div>`:''}
         <div class="proj-stats">
           ${r.stargazers_count>0?`<span class="proj-stat">★ ${r.stargazers_count}</span>`:''}
           ${r.forks_count>0?`<span class="proj-stat">⑂ ${r.forks_count}</span>`:''}
@@ -584,89 +608,77 @@ function renderEntry(r){
 }
 
 function applyFilters(){
-  const entries = document.querySelectorAll('.project-entry');
   let visible=0;
-  entries.forEach(e=>{
-    const langOk = currentLang==='all' || e.dataset.lang===currentLang;
-    const visOk  = currentVis==='all'  || e.dataset.vis===currentVis;
-    e.style.display = (langOk&&visOk)?'':'none';
-    if(langOk&&visOk) visible++;
+  document.querySelectorAll('.project-entry').forEach(e=>{
+    const ok=(currentLang==='all'||e.dataset.lang===currentLang)&&
+             (currentVis==='all'||e.dataset.vis===currentVis);
+    e.style.display=ok?'':'none';
+    if(ok) visible++;
   });
-  document.getElementById('section-label').textContent = `Projects (${visible})`;
+  document.getElementById('section-label').textContent=`Projects (${visible})`;
 }
 
-function setVis(v, btn){
+function setVis(v,btn){
   currentVis=v;
   document.querySelectorAll('.vis-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
   applyFilters();
 }
 
-function setLang(l, btn){
+function setLang(l,btn){
   currentLang=l;
   document.querySelectorAll('.filter-item').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
   applyFilters();
 }
 
-function buildLangFilters(repos){
+function buildSidebar(repos){
   const counts={};
-  repos.forEach(r=>{ if(r.language){ counts[r.language]=(counts[r.language]||0)+1; } });
-  const sorted = Object.entries(counts).sort((a,b)=>b[1]-a[1]);
-  const fc = document.getElementById('lang-filters');
-  document.getElementById('count-all').textContent = repos.length;
-
+  repos.forEach(r=>{ if(r.language) counts[r.language]=(counts[r.language]||0)+1; });
+  const sorted=Object.entries(counts).sort((a,b)=>b[1]-a[1]);
+  const fc=document.getElementById('lang-filters');
+  document.getElementById('count-all').textContent=repos.length;
   sorted.forEach(([lang,count])=>{
-    const btn = document.createElement('button');
+    const btn=document.createElement('button');
     btn.className='filter-item'; btn.dataset.lang=lang;
     btn.onclick=function(){ setLang(lang,this); };
-    btn.innerHTML=`<span class="lang-dot-sm ${lc(lang)}" style="width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0"></span>${lang}<span class="filter-count">${count}</span>`;
+    btn.innerHTML=`<span class="lang-dot-sm ${lc(lang)}"></span>${lang}<span class="filter-count">${count}</span>`;
     fc.appendChild(btn);
   });
-
-  // Lang breakdown chart
-  if(sorted.length>0){
+  if(sorted.length){
     const max=sorted[0][1];
-    const chart = document.getElementById('lang-chart');
-    sorted.slice(0,7).forEach(([lang,count])=>{
-      chart.innerHTML+=`
-        <div class="lang-row">
-          <span class="lang-dot-sm ${lc(lang)}" style="width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0"></span>
-          <span class="lang-name">${lang}</span>
-          <div class="lang-bar-wrap"><div class="lang-bar" style="width:${Math.round(count/max*100)}%"></div></div>
-        </div>`;
+    const chart=document.getElementById('lang-chart');
+    sorted.slice(0,8).forEach(([lang,count])=>{
+      const div=document.createElement('div');
+      div.className='lang-row';
+      div.innerHTML=`<span class="lang-dot-sm ${lc(lang)}"></span><span class="lang-name">${lang}</span><div class="lang-bar-wrap"><div class="lang-bar" style="width:${Math.round(count/max*100)}%"></div></div>`;
+      chart.appendChild(div);
     });
-    document.getElementById('lang-chart-section').style.display='block';
+    document.getElementById('lang-chart-wrap').style.display='block';
   }
 }
 
 function init(){
-  const el = document.getElementById('repo-data');
+  const el=document.getElementById('repo-data');
   if(!el) return;
-
-  const { repos, stats, user, built_at } = JSON.parse(el.textContent);
-  allRepos = repos;
+  const {repos,stats,user,built_at}=JSON.parse(el.textContent);
 
   // Avatar
   if(user.avatar_url){
     const av=document.getElementById('avatar');
     av.src=user.avatar_url; av.style.display='block';
-    document.getElementById('avatar-placeholder').style.display='none';
+    document.getElementById('avatar-ph').style.display='none';
   }
-
-  // Bio / title
-  if(user.bio) document.getElementById('bio-text').textContent=user.bio;
-  if(user.name) document.getElementById('header-title').textContent=user.name+' · Software Developer';
 
   // Followers
   if(user.followers){
-    document.getElementById('followers-meta').style.display='flex';
-    document.getElementById('followers-text').textContent=`${user.followers} followers · ${user.following} following`;
+    document.getElementById('followers-row').style.display='flex';
+    document.getElementById('followers-txt').textContent=`${user.followers} followers · ${user.following} following`;
   }
 
-  // Built at
+  // Built
   const d=new Date(built_at);
-  document.getElementById('built-text').textContent='Updated '+d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+  document.getElementById('built-txt').textContent='Updated '+d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
 
   // Stats
   document.getElementById('stat-total').textContent=stats.total;
@@ -674,11 +686,11 @@ function init(){
   document.getElementById('stat-public').textContent=stats.public;
   document.getElementById('stat-private').textContent=stats.private;
 
-  // Render projects
-  document.getElementById('project-list').innerHTML = repos.map(renderEntry).join('');
+  // Projects
+  document.getElementById('project-list').innerHTML=repos.map(renderEntry).join('');
   document.getElementById('section-label').textContent=`Projects (${repos.length})`;
 
-  buildLangFilters(repos);
+  buildSidebar(repos);
 }
 
 init();
